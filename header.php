@@ -12,16 +12,12 @@
 
   <header class="container">
     <div class="container_header">
-      <div class="container_logo"></div>
+      <a href="<?=esc_url(home_url());?>">
+        <div class="container_logo"></div>
+      </a>
       <div class="flex-left">
         <div class="container_menu">
-          <?php wp_nav_menu();?>
-          <!-- <ul class="menu">
-            <li class="active"><a href="#">Главная</a></li>
-            <li><a href="#"> Новинки</a></li>
-            <li><a href="#">Уценка</a></li>
-            <li><a href="#">Контакти</a></li>
-          </ul> -->
+          <?php wp_nav_menu(); ?>
         </div>
         <div class="menu_mobile">
           <span></span>
@@ -41,5 +37,5 @@
         </div>
       </div>
     </div>
-    <?php woocommerce_breadcrumb()?>
+    <?php woocommerce_breadcrumb() ?>
   </header>

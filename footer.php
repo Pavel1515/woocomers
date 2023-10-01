@@ -1,34 +1,54 @@
-<?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package woocomers
- */
-
-?>
-
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'woocomers' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'woocomers' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'woocomers' ), 'woocomers', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
-
-<?php wp_footer(); ?>
-
-</body>
+<footer>
+      <div class="container footer_container">
+        <div class="first_block">
+          <div class="logo"></div>
+          <ul>
+            <li><a href="">0638868610</a></li>
+            <li><a href="">ppvr3407@gmail.com</a></li>
+          </ul>
+        </div>
+        <div class="second_block">
+          <div class="separator"></div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt,
+            animi omnis nobis incidunt, molestiae quis provident non ex possimus
+            hic nihil tempore, iure harum. Praesentium incidunt alias explicabo
+            et modi?
+          </p>
+        </div>
+        <div class="third_block">
+          <div class="separator"></div>
+          <h2>Menu</h2>
+          <ul class="footer_menu">
+            <li><a href="1">1</a></li>
+            <li><a href="1">1</a></li>
+            <li><a href="1">1</a></li>
+            <li><a href="1">1</a></li>
+            <li><a href="1">1</a></li>
+          </ul>
+        </div>
+        <div class="quarter_block">
+          <div class="separator"></div>
+          <h2>Menu</h2>
+          <ul class="footer_menu">
+            <li><a href="">1</a></li>
+            <li><a href="">1</a></li>
+            <li><a href="">1</a></li>
+            <li><a href="">1</a></li>
+            <li><a href="">1</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- spec-button -->
+    <div class="up_to_header" id="up_to_header">
+      <img src="./assets/img/icons8-arrow-64.png" alt="" />
+    </div>
+    <script src="./assets/js/main.js"></script>
+		<?php wp_footer(); ?>
+  </body>
 </html>
+
+
+
+
