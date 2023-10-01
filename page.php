@@ -1,50 +1,36 @@
-<?php
-// Включаем заголовок страницы WordPress
-get_header();
-
-// Выводим контент
-echo '<main class="content container">';
-
-get_sidebar(); // Вставляем сайдбар из файла sidebar.php
-
-echo '<div class="content_left">';
-
-// Выводим заголовок страницы
-echo '<h1>' . get_the_title() . '</h1>';
-
-// Выводим содержимое страницы
-if (have_posts()) {
-    while (have_posts()) {
-        the_post();
-
-        // Проверяем, является ли текущий пост продуктом WooCommerce
-        if (function_exists('wc_get_product') && wc_get_product(get_the_ID())) {
-            // Получаем объект продукта WooCommerce
-            $product = wc_get_product(get_the_ID());
-
-            // Получаем информацию о продукте
-            $product_title = $product->get_name(); // Заголовок продукта
-            $product_price = $product->get_price(); // Цена продукта
-            $product_url = get_permalink(); // URL продукта
-
-            // Вывод информации о продукте
-            echo '<h2>' . $product_title . '</h2>';
-            echo '<p>Ценауу: ' . wc_price($product_price) . '</p>';
-            echo '<a href="' . $product_url . '">Подробнее</a>';
-        } else {
-            // Если текущая запись не является продуктом WooCommerce, выведите стандартный контент
-            the_title('<h2>', '</h2>');
-            the_content();
-        }
-    }
+<?php get_header(); ?>
+<?php global $post;
+if ($post) {
+    $page_slug = $post->post_name;
+    $args = array(
+        'post_type' => 'product', // Тип записей для продуктов WooCommerce
+        'product_cat' => $post->post_name, // Слаг категории товаров
+        'posts_per_page' => -1, // Количество товаров (-1 для вывода всех)
+    );
+    
+    $products = new WP_Query($args);
+    
+    if ($products->have_posts()) :
+        while ($products->have_posts()) : $products->the_post();
+            // Здесь выводите содержимое каждого продукта
+            the_title(); 
+            echo '</br>';// Пример вывода заголовка продукта
+          
+            // и т.д.
+        endwhile;
+        wp_reset_postdata();
+    else :
+        // Если продукты не найдены
+        echo 'Продукты не найдены.';
+    endif;
+    
+    
+    
+}else{
+    echo '<div>Товаров в групе не найденно</div>';
 }
 
 
-// Здесь можно продолжить вывод другого контента или товаров
 
-echo '</div>';
-echo '</main>';
-
-// Включаем подвал страницы WordPress
-get_footer();
-?>
+ ?>
+<?php get_footer(); ?>
